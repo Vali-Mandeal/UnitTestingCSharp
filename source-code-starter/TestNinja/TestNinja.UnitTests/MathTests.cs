@@ -17,6 +17,7 @@ namespace TestNinja.UnitTests
         // TearDown
 
         [Test]
+        [Ignore("Because I want it to!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
             var result = _math.Add(1, 2);
