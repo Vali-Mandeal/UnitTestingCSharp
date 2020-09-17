@@ -55,6 +55,22 @@ namespace TestNinja.UnitTests
             //Assert.That(result, Is.Ordered);
             //Assert.That(result, Is.Unique);
         }
+
+        [Test]
+        public void GetOddNumbers_LimitIsZero_ReturnsEmptyArray()
+        {
+            var result = _math.GetOddNumbers(0);
+
+            Assert.That(result, Is.Empty);
+        }
+
+        [Test]
+        public void GetOddNumbers_LimitIsLessThanZero_ReturnsEmptyArray()
+        {
+            var result = _math.GetOddNumbers(0);
+
+            Assert.That(result, Is.Empty);
+        }
     }   
 }
     
