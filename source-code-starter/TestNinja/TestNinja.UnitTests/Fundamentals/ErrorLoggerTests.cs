@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using TestNinja.Fundamentals;
 
-namespace TestNinja.UnitTests
+namespace TestNinja.UnitTests.Fundamentals
 {
     [TestFixture]
     class ErrorLoggerTests

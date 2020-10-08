@@ -1,8 +1,7 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TestNinja.Fundamentals;
 
-namespace TestNinja.UnitTests
+namespace TestNinja.UnitTests.Fundamentals
 {
     [TestFixture]
     public class FizzBuzzTests
