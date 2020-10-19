@@ -10,6 +10,7 @@ namespace TestNinja.Mocking
     public class VideoService
     {
         private IFileReader _fileReader;
+        private IVideoRepository _videoRepository;
 
         //public VideoService()
         //{
@@ -19,11 +20,12 @@ namespace TestNinja.Mocking
         //{
         //    _fileReader = fileReader;
         //}
-        public VideoService(IFileReader fileReader = null)
+        public VideoService(IFileReader fileReader = null, IVideoRepository videoRepository = null)
         {
             _fileReader = fileReader ?? new FileReader();
+            _videoRepository = videoRepository ?? new VideoRepository();
         }   
-
+                
         public string ReadVideoTitle()
         {
             var str = _fileReader.Read("video.txt");
@@ -35,20 +37,11 @@ namespace TestNinja.Mocking
 
         public string GetUnprocessedVideosAsCsv()
         {
-            var videoIds = new List<int>();
-            
-            using (var context = new VideoContext())
-            {
-                var videos = 
-                    (from video in context.Videos
-                    where !video.IsProcessed
-                    select video).ToList();
-                
-                foreach (var v in videos)
-                    videoIds.Add(v.Id);
+            var videos = _videoRepository.GetUnprocessedVideos();
 
-                return String.Join(",", videoIds);
-            }
+            var videoIds = videos.Select(v => v.Id).ToList();
+
+            return string.Join(",", videoIds);
         }
     }
 
