@@ -6,16 +6,16 @@ using System.Text;
 
 namespace TestNinja.Mocking
 {
-    public class HousekeeperHelper
+    public class HousekeeperService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IStatementGenerator _statementGenerator;
         private readonly IEmailSender _emailSender;
         private readonly IXtraMessageBox _messageBox;
 
-        public HousekeeperHelper(
+        public HousekeeperService(
             IUnitOfWork unitOfWork, 
-            IStatementGenerator statementGenerator, 
+            IStatementGenerator statementGenerator,     
             IEmailSender emailSender,
             IXtraMessageBox messageBox)
         {
